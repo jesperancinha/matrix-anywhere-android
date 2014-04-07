@@ -132,7 +132,8 @@ public class MatrixAnywhereMainActivity extends Activity {
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MatrixAnywhereMainActivity.this, MatrixActivity.class);
+                Intent i;
+                i = new Intent(MatrixAnywhereMainActivity.this, MatrixActivity.class);
                 i.putExtra("NROWS", Integer.parseInt(editRows.getText().toString()));
                 i.putExtra("NCOLUMNS", Integer.parseInt(editColumns.getText().toString()));
                 startActivity(i);

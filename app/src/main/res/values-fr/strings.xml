@@ -16,5 +16,6 @@
     <string name="result">Résultat:</string>
     <string name="welcome_message">Bienvenue à Matrix Anywhere</string>
     <string name="matrix_calculation">Calcul de déterminant de la matrice</string>
+    <string name="submit_text">Submit</string>
 
 </resources>
