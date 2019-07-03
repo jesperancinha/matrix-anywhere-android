@@ -1,6 +1,6 @@
-package com.joai.matrixanywhere;
+package org.jesperancinha.matrixanywhere;
 
-import com.joai.matrixanywhere.util.SystemUiHider;
+import org.jesperancinha.matrixanywhere.util.SystemUiHider;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;

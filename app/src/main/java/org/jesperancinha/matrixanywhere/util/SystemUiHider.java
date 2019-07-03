@@ -1,4 +1,4 @@
-package com.joai.matrixanywhere.util;
+package org.jesperancinha.matrixanywhere.util;
 
 import android.app.Activity;
 import android.os.Build;

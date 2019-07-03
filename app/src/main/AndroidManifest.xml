@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     android:versionCode="2" android:versionName="2.0"
-    package="com.joai.matrixanywhere" >
+    package="org.jesperancinha.matrixanywhere" >
 
     <application
         android:debuggable="false"
@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.joai.matrixanywhere.MatrixAnywhereMainActivity"
+            android:name="org.jesperancinha.matrixanywhere.MatrixAnywhereMainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:theme="@style/FullscreenTheme" >
@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.joai.matrixanywhere.MatrixActivity"
+            android:name="org.jesperancinha.matrixanywhere.MatrixActivity"
             android:label="@string/title_activity_matrix" >
         </activity>
     </application>

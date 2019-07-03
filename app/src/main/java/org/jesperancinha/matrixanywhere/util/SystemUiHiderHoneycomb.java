@@ -1,4 +1,4 @@
-package com.joai.matrixanywhere.util;
+package org.jesperancinha.matrixanywhere.util;
 
 import android.annotation.TargetApi;
 import android.app.Activity;

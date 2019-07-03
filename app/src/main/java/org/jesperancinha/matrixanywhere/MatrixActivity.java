@@ -1,28 +1,20 @@
-package com.joai.matrixanywhere;
+package org.jesperancinha.matrixanywhere;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
 
-
-public class MatrixActivity extends ActionBarActivity {
+public class MatrixActivity extends AppCompatActivity {
 
 
     private TableLayout tableMatrix = null;
@@ -46,7 +38,7 @@ public class MatrixActivity extends ActionBarActivity {
         setTitle(getString(R.string.matrix_calculation));
 
 
-        tableMatrix = (TableLayout) findViewById(R.id.tableMatrix);
+        tableMatrix = findViewById(R.id.tableMatrix);
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             nRows = extras.getInt("NROWS");
@@ -54,7 +46,7 @@ public class MatrixActivity extends ActionBarActivity {
             tableCalc = new EditText[nRows][nColumns];
             generateMatrix(nRows, nColumns);
         }
-        btnReturn = (Button) findViewById(R.id.buttonReturn);
+        btnReturn = findViewById(R.id.buttonReturn);
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,16 +56,16 @@ public class MatrixActivity extends ActionBarActivity {
             }
         });
 
-        buttonCalculate = (Button) findViewById(R.id.buttonCalculate);
+        buttonCalculate = findViewById(R.id.buttonCalculate);
         buttonCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 double calculus = calculateDeterminant(tableCalc);
-                textResult.setText(new Double(calculus).toString());
+                textResult.setText(Double.toString(calculus));
             }
         });
 
-        textResult = (TextView) findViewById(R.id.textResult);
+        textResult = findViewById(R.id.textResult);
     }
 
     private double calculateDeterminant(EditText[][] tableCalc) {
@@ -104,11 +96,11 @@ public class MatrixActivity extends ActionBarActivity {
                     * matrix[1][0];
         } else {
             int multiplier = 1;
-            for (int i = 0; i < matrix.length; i++) {
+            for (double[] matrix1 : matrix) {
                 for (int j = 0; j < matrix[0].length; j++) {
 
-                    double subMatrix[][] = getSubMatrix(matrix, j);
-                    determinant += multiplier * matrix[i][j]
+                    double[][] subMatrix = getSubMatrix(matrix, j);
+                    determinant += multiplier * matrix1[j]
                             * getDeterminant(subMatrix);
                     multiplier *= -1;
                 }
