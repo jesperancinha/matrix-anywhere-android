@@ -1,7 +1,8 @@
-#Intellij
+# Intellij
 .idea
 *.iml
 target
 build
 .DS_Store
 .gradle
+*.apk
