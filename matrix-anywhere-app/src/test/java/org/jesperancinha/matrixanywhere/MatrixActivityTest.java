@@ -1,10 +1,19 @@
 package org.jesperancinha.matrixanywhere;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 class MatrixActivityTest {
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getDeterminant() {
+        final MatrixActivity matrixActivity = new MatrixActivity();
+
+        double determinant = matrixActivity.getDeterminant(new double[][]{
+                {1, 1},
+                {2, 1}
+        });
+
+        assert determinant == -1.0;
+
     }
 }
