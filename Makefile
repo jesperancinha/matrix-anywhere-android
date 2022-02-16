@@ -6,8 +6,8 @@ install-jacococli:
 	unzip remotecontent\?filepath=org%2Fjacoco%2Fjacoco%2F0.8.7%2Fjacoco-0.8.7.zip
 unpack-reports:
 	mkdir -p jacoco
-	java -jar lib/jacococli.jar report itf-chartizate-android/build/jacoco/testReleaseUnitTest.exec --classfiles itf-chartizate-android/build/.transforms/*/transformed/out/jars/classes.jar --xml jacoco/jacocoRelease.xml
-	java -jar lib/jacococli.jar report itf-chartizate-android/build/jacoco/testDebugUnitTest.exec --classfiles itf-chartizate-android/build/.transforms/*/transformed/out/jars/classes.jar --xml jacoco/jacocoDebug.xml
+	java -jar lib/jacococli.jar report matrix-anywhere-android/build/jacoco/testReleaseUnitTest.exec --classfiles matrix-anywhere-android/build/.transforms/*/transformed/out/jars/classes.jar --xml jacoco/jacocoRelease.xml
+	java -jar lib/jacococli.jar report matrix-anywhere-android/build/jacoco/testDebugUnitTest.exec --classfiles matrix-anywhere-android/build/.transforms/*/transformed/out/jars/classes.jar --xml jacoco/jacocoDebug.xml
 upgrade:
 	gradle wrapper --gradle-version 7.4
 coverage:
