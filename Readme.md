@@ -11,7 +11,9 @@
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/43886273bcf8430194ec5db0ccbf4a5a)](https://www.codacy.com/gh/jesperancinha/matrix-anywhere-android/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/matrix-anywhere-android&amp;utm_campaign=Badge_Grade)
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/43886273bcf8430194ec5db0ccbf4a5a)](https://www.codacy.com/gh/jesperancinha/matrix-anywhere-android/dashboard?utm_source=github.com&utm_medium=referral&utm_content=jesperancinha/matrix-anywhere-android&utm_campaign=Badge_Coverage)
 [![Coverage Status](https://coveralls.io/repos/github/jesperancinha/matrix-anywhere-android/badge.svg?branch=master)](https://coveralls.io/github/jesperancinha/matrix-anywhere-android?branch=master)
+[![codecov](https://codecov.io/gh/jesperancinha/matrix-anywhere-android/branch/master/graph/badge.svg?token=NhRfAd7umx)](https://codecov.io/gh/jesperancinha/matrix-anywhere-android)
 
 [![GitHub language count](https://img.shields.io/github/languages/count/jesperancinha/matrix-anywhere-android.svg)](#)
 [![GitHub top language](https://img.shields.io/github/languages/top/jesperancinha/matrix-anywhere-android.svg)](#)
