@@ -7,6 +7,8 @@
 
 [![GitHub License](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
 
+[![matrix-anywhere-android](https://github.com/jesperancinha/matrix-anywhere-android/actions/workflows/matrix-anywhere-android.yml/badge.svg)](https://github.com/jesperancinha/matrix-anywhere-android/actions/workflows/matrix-anywhere-android.yml)
+
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/43886273bcf8430194ec5db0ccbf4a5a)](https://www.codacy.com/gh/jesperancinha/matrix-anywhere-android/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/matrix-anywhere-android&amp;utm_campaign=Badge_Grade)
 
 [![Coverage Status](https://coveralls.io/repos/github/jesperancinha/matrix-anywhere-android/badge.svg?branch=master)](https://coveralls.io/github/jesperancinha/matrix-anywhere-android?branch=master)
