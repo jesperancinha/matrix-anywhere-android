@@ -8,3 +8,6 @@ build
 *.apk
 
 *.hprof
+
+# Android
+local.properties
