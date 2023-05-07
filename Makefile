@@ -1,3 +1,4 @@
+SHELL := /bin/bash
 GRADLE_VERSION ?= 8.1.1
 
 b: buildw
@@ -11,8 +12,6 @@ unpack-reports:
 	mkdir -p jacoco
 	java -jar lib/jacococli.jar report matrix-anywhere-android/build/jacoco/testReleaseUnitTest.exec --classfiles matrix-anywhere-android/build/.transforms/*/transformed/out/jars/classes.jar --xml jacoco/jacocoRelease.xml
 	java -jar lib/jacococli.jar report matrix-anywhere-android/build/jacoco/testDebugUnitTest.exec --classfiles matrix-anywhere-android/build/.transforms/*/transformed/out/jars/classes.jar --xml jacoco/jacocoDebug.xml
-upgrade:
-	gradle wrapper --gradle-version 8.0.1
 coverage:
 	./gradlew clean build test jacocoTestReport
 	./gradlew -i
