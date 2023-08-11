@@ -1,4 +1,4 @@
-package org.jesperancinha.ui.theme
+package org.jesperancinha.matrixanywhere.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

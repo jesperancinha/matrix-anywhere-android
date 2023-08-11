@@ -1,4 +1,4 @@
-package org.jesperancinha.ui.theme
+package org.jesperancinha.matrixanywhere.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

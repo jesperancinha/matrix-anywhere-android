@@ -1,4 +1,4 @@
-package org.jesperancinha.ui.theme
+package org.jesperancinha.matrixanywhere.ui.theme
 
 import android.app.Activity
 import android.os.Build

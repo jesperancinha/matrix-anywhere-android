@@ -1,4 +1,4 @@
-package org.jesperancinha
+package org.jesperancinha.matrixanywhere
 
 import org.junit.Test
 
