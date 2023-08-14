@@ -35,7 +35,7 @@ sealed class Screen(val route: String) {
 @Composable
 fun AnimatedSplashScreen(navController: NavHostController) {
     var startAnimation by remember { mutableStateOf(false) }
-    val alphaAnim = animateFloatAsState(
+    val floatState = animateFloatAsState(
         targetValue = if (startAnimation) 1f else 0f,
         animationSpec = tween(
             durationMillis = 1000
@@ -48,14 +48,14 @@ fun AnimatedSplashScreen(navController: NavHostController) {
         navController.popBackStack()
         navController.navigate(Screen.Home.route)
     }
-    Splash(alpha = alphaAnim.value)
+    Splash(alpha = floatState.value)
 }
 
 @Composable
 fun Splash(alpha: Float) {
     Box(
         modifier = Modifier
-            .background(if (isSystemInDarkTheme()) Color.Black else Purple80)
+            .background(if (isSystemInDarkTheme()) Color.Black else Color.Blue)
             .fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
