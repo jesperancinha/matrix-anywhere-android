@@ -25,10 +25,11 @@ An evolution of the previous Matrix Anywhere app.
 
 Please read my privacy policy listed in [Privacy Policy](Privacy_Policy.md).
 
-![alt text](matrix-anywhere-app/src/main/res/drawable-xxhdpi/ic_launcher.png "Logo Title Text 1")
-![alt text](matrix-anywhere-app/src/main/res/drawable-xhdpi/ic_launcher.png "Logo Title Text 1")
-![alt text](matrix-anywhere-app/src/main/res/drawable-hdpi/ic_launcher.png "Logo Title Text 1")
-![alt text](matrix-anywhere-app/src/main/res/drawable-mdpi/ic_launcher.png "Logo Title Text 1")
+![alt text](app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp "Matrix Anywhere 2")
+![alt text](app/src/main/res/mipmap-xxhdpi/ic_launcher.webp "Matrix Anywhere 2")
+![alt text](app/src/main/res/mipmap-xhdpi/ic_launcher.webp "Matrix Anywhere 2")
+![alt text](app/src/main/res/mipmap-hdpi/ic_launcher.webp "Matrix Anywhere 2")
+![alt text](app/src/main/res/mipmap-mdpi/ic_launcher.webp "Matrix Anywhere 2")
 
 ## Status
 
