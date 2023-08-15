@@ -1,5 +1,6 @@
 package org.jesperancinha.matrixanywhere
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -21,6 +22,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.content.ContextCompat.startActivity
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -33,14 +35,14 @@ class MainActivity : ComponentActivity() {
         setContent {
             MatrixAnywhereTheme {
                 val navController = rememberNavController()
-                SetupNavGraph(navController = navController)
+                SetupNavGraph(navController = navController, this)
             }
         }
     }
 }
 
 @Composable
-fun SetupNavGraph(navController: NavHostController) {
+fun SetupNavGraph(navController: NavHostController, mainActivity: MainActivity) {
     NavHost(
         navController = navController,
         startDestination = Screen.Splash.route
@@ -53,7 +55,7 @@ fun SetupNavGraph(navController: NavHostController) {
                 modifier = Modifier.fillMaxSize(),
                 color = MaterialTheme.colorScheme.background
             ) {
-                Greeting("Android")
+                Greeting("Android", mainActivity = mainActivity)
             }
         }
     }
@@ -61,7 +63,7 @@ fun SetupNavGraph(navController: NavHostController) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun Greeting(name: String, modifier: Modifier = Modifier, mainActivity: MainActivity) {
     var width by remember {
         mutableStateOf("")
     }
@@ -92,16 +94,11 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
                 }
             )
         }
-        Button(onClick = {}) {
+        Button(onClick = {
+            val navigate = Intent(mainActivity, MatrixForm::class.java)
+            startActivity(mainActivity, navigate, null)
+        }) {
             Text(text = "Submit")
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MatrixAnywhereTheme {
-        Greeting("Android")
     }
 }
