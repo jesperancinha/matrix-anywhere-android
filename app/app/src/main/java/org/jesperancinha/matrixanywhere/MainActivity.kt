@@ -96,6 +96,8 @@ fun Greeting(name: String, modifier: Modifier = Modifier, mainActivity: MainActi
         }
         Button(onClick = {
             val navigate = Intent(mainActivity, MatrixForm::class.java)
+            navigate.putExtra("height", height.toInt())
+            navigate.putExtra("width", width.toInt())
             startActivity(mainActivity, navigate, null)
         }) {
             Text(text = "Submit")
