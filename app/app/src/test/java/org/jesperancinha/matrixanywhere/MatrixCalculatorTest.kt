@@ -3,7 +3,7 @@ package org.jesperancinha.matrixanywhere
 import org.jesperancinha.matrixanywhere.ui.theme.getDeterminant
 import org.junit.Test
 
-internal class MatrixActivityTest {
+internal class MatrixCalculatorTest {
     @Test
     fun `should calculate the determinant correctly`() {
         val determinant: Double = getDeterminant(

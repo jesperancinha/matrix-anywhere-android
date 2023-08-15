@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,7 +12,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.material.BottomDrawerValue
 import androidx.compose.material.Card
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -31,7 +29,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.unit.sp
 import androidx.core.text.isDigitsOnly
 
 class MatrixForm : ComponentActivity() {
@@ -44,7 +41,7 @@ class MatrixForm : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting2("Android", intent = intent, matrixForm = this)
+                    MatrixFormOutline("Android", intent = intent, matrixForm = this)
                 }
             }
         }
@@ -58,7 +55,7 @@ class MatrixForm : ComponentActivity() {
 
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
-fun Greeting2(name: String, modifier: Modifier = Modifier, intent: Intent, matrixForm: MatrixForm) {
+fun MatrixFormOutline(name: String, modifier: Modifier = Modifier, intent: Intent, matrixForm: MatrixForm) {
     val width = intent.getIntExtra("width", 2)
     val height = intent.getIntExtra("height", 2)
 
@@ -67,6 +64,10 @@ fun Greeting2(name: String, modifier: Modifier = Modifier, intent: Intent, matri
         (1..height).map { w - 1 to it - 1 }
     }
 
+    val  matrixCalculator by lazy {  MatrixCalculator() }
+    var determinantResult by remember {
+        mutableStateOf("")
+    }
     Row(
         verticalAlignment = Alignment.Top,
         horizontalArrangement = Arrangement.Center
@@ -96,12 +97,27 @@ fun Greeting2(name: String, modifier: Modifier = Modifier, intent: Intent, matri
             }
         }
     }
+    
+    Row (
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.Center
+    ) {
+        if(determinantResult.isNotEmpty()) {
+            Text(text = "The determinant calculation is $determinantResult")
+        }
+    }
     Row(
         verticalAlignment = Alignment.Bottom,
         horizontalArrangement = Arrangement.Center
     ) {
         Button(onClick = { matrixForm.finish() }) {
             Text(text = "Back")
+        }
+        Button(onClick = {
+            val determinant = matrixCalculator.calculateDeterminant(matrix)
+            determinantResult= determinant.toString()
+        }) {
+            Text(text = "Calculate")
         }
     }
 

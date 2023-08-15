@@ -1,8 +1,6 @@
 package org.jesperancinha.matrixanywhere
 
-import android.text.InputType
 import android.widget.EditText
-import android.widget.TableRow
 
 class MatrixCalculator {
 
@@ -21,11 +19,11 @@ class MatrixCalculator {
                 }
             }
         }
-        return getDeterminant(matrix)
+        return calculateDeterminant(matrix)
     }
 
 
-    fun getDeterminant(matrix: Array<DoubleArray>): Double {
+    fun calculateDeterminant(matrix: Array<DoubleArray>): Double {
         var determinant = 0.0
         if (matrix.size == 1) {
             determinant += matrix[0][0]
@@ -37,7 +35,7 @@ class MatrixCalculator {
                 for (j in matrix[0].indices) {
                     val subMatrix = getSubMatrix(matrix, j)
                     determinant += (multiplier * matrix1[j]
-                            * getDeterminant(subMatrix))
+                            * calculateDeterminant(subMatrix))
                     multiplier *= -1
                 }
             }
