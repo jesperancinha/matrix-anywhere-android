@@ -3,7 +3,8 @@ GRADLE_VERSION ?= 8.1.1
 
 b: buildw
 buildw:
-	./gradlew clean build test jacocoTestReport -i
+	./gradlew clean build test
+	#./gradlew clean build test jacocoTestReport -i
 	gradle
 install-jacococli:
 	wget https://search.maven.org/remotecontent\?filepath\=org/jacoco/jacoco/0.8.7/jacoco-0.8.7.zip
