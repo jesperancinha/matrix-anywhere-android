@@ -19,7 +19,7 @@ jobs:
         cache: gradle
 
     - name: Set up Android 30
-      uses: jesperancinhaorg/android-action@v0.0.1
+      uses: jesperancinhaorg/android-action@v0.0.3
 
     - name: Creates properties
       run: touch local.properties
@@ -30,11 +30,18 @@ jobs:
     - name: Creates properties
       run: touch local.properties
 
+    - name: Start emulator
+      run: make start-emulator-linux-no-window &
+
+    - name: Instumentation tests
+      run: make run-android-instrumentation
+
     - name: Download Android dependencies
       run: make dependencies
 
     - name: Gradle Lint Test
       run: make lint
+
 
     - name: Send Reports
       run: gradle -i
