@@ -48,3 +48,5 @@ install-linux:
 	sudo apt-get install jq
 	sudo apt-get install curl
 	curl https://services.gradle.org/versions/current
+fix-gitk:
+	rm ~/.config/git/gitk
