@@ -1,6 +1,7 @@
 package org.jesperancinha.matrixanywhere
 
 import androidx.compose.ui.test.SemanticsMatcher
+import androidx.compose.ui.test.assertTextContains
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
@@ -44,5 +45,46 @@ class ExampleInstrumentedTest {
         }
 
         composeTestRule.onNodeWithTag(SUBMIT_MATRIX_TAG).performClick()
+        composeTestRule.waitForIdle()
+        composeTestRule.onNodeWithTag("00").apply {
+            performTextClearance()
+            performTextInput("4")
+        }
+        composeTestRule.onNodeWithTag("01").apply {
+            performTextClearance()
+            performTextInput("5")
+        }
+        composeTestRule.onNodeWithTag("02").apply {
+            performTextClearance()
+            performTextInput("6")
+        }
+        composeTestRule.onNodeWithTag("10").apply {
+            performTextClearance()
+            performTextInput("3")
+        }
+        composeTestRule.onNodeWithTag("11").apply {
+            performTextClearance()
+            performTextInput("8")
+        }
+        composeTestRule.onNodeWithTag("12").apply {
+            performTextClearance()
+            performTextInput("9")
+        }
+        composeTestRule.onNodeWithTag("20").apply {
+            performTextClearance()
+            performTextInput("1")
+        }
+        composeTestRule.onNodeWithTag("21").apply {
+            performTextClearance()
+            performTextInput("2")
+        }
+        composeTestRule.onNodeWithTag("22").apply {
+            performTextClearance()
+            performTextInput("3")
+        }
+
+        composeTestRule.onNodeWithTag(SUBMIT_CALCULATE_TAG).performClick()
+        composeTestRule.onNodeWithTag(CALCULATION_TAG).assertTextContains("The determinant calculation is 12.0")
+
     }
 }

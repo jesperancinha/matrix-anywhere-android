@@ -2,6 +2,10 @@ SHELL := /bin/bash
 GRADLE_VERSION ?= 8.1.1
 
 b: buildw
+start-emulator-linux:
+	~/Android/Sdk/emulator/emulator -list-avds tail -1 | xargs -I {} ~/Android/Sdk/emulator/emulator -avd {}
+run-android-instrumentation:
+	./gradlew connectedAndroidTest
 buildw:
 	./gradlew clean build test
 	#./gradlew clean build test jacocoTestReport -i
