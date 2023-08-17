@@ -63,10 +63,7 @@ fun SetupNavGraph(navController: NavHostController, mainActivity: MainActivity) 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier, mainActivity: MainActivity) {
-    var width by remember {
-        mutableStateOf("")
-    }
-    var height by remember {
+    var dim by remember {
         mutableStateOf("")
     }
     Column(
@@ -78,25 +75,25 @@ fun Greeting(name: String, modifier: Modifier = Modifier, mainActivity: MainActi
         Row {
             Text(text = "Height:")
             TextField(
-                value = height,
+                value = dim,
                 onValueChange = { newText ->
-                    height = newText
+                    dim = newText
                 }
             )
         }
         Row {
             Text(text = "Width:")
             TextField(
-                value = width,
+                value = dim,
                 onValueChange = { newText ->
-                    width = newText
+                    dim = newText
                 }
             )
         }
         Button(onClick = {
             val navigate = Intent(mainActivity, MatrixForm::class.java)
-            navigate.putExtra("height", height.toInt())
-            navigate.putExtra("width", width.toInt())
+            navigate.putExtra("height", dim.toInt())
+            navigate.putExtra("width", dim.toInt())
             startActivity(mainActivity, navigate, null)
         }) {
             Text(text = "Submit")

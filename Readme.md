@@ -41,6 +41,10 @@ Please read my privacy policy listed in [Privacy Policy](Privacy_Policy.md).
 
 ***Under development***
 
+## References
+
+-   [Material Theme Builder](https://m3.material.io/theme-builder)
+
 ## About me
 
 <div align="center">
