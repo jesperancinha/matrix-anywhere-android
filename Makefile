@@ -1,9 +1,11 @@
 SHELL := /bin/bash
-GRADLE_VERSION ?= 8.1.1
+GRADLE_VERSION ?= 8.3
 
 b: buildw
 start-emulator-linux:
 	~/Android/Sdk/emulator/emulator -list-avds tail -1 | xargs -I {} ~/Android/Sdk/emulator/emulator -avd {}
+start-emulator-linux-no-window:
+	~/Android/Sdk/emulator/emulator -list-avds tail -1 | xargs -I {} ~/Android/Sdk/emulator/emulator -no-window -avd  {}
 run-android-instrumentation:
 	./gradlew connectedAndroidTest
 buildw:

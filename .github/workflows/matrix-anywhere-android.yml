@@ -36,6 +36,12 @@ jobs:
     - name: Gradle Lint Test
       run: make lint
 
+    - name: Start emulator
+      run: make start-emulator-linux &
+
+    - name: Instumentation tests
+      run: -no-window
+
     - name: Send Reports
       run: gradle -i
       env:
