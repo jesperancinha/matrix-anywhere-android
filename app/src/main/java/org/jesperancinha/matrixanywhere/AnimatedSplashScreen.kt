@@ -25,7 +25,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import kotlinx.coroutines.delay
-import org.jesperancinha.matrixanywhere.ui.theme.Purple80
 
 
 sealed class Screen(val route: String) {
