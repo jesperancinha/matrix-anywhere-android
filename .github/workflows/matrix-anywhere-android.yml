@@ -30,17 +30,18 @@ jobs:
     - name: Creates properties
       run: touch local.properties
 
+    - name: Start emulator
+      run: make start-emulator-linux-no-window &
+
+    - name: Instumentation tests
+      run: make run-android-instrumentation
+
     - name: Download Android dependencies
       run: make dependencies
 
     - name: Gradle Lint Test
       run: make lint
 
-    - name: Start emulator
-      run: make start-emulator-linux &
-
-    - name: Instumentation tests
-      run: -no-window
 
     - name: Send Reports
       run: gradle -i
