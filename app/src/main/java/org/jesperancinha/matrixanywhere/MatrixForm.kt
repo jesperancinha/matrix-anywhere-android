@@ -113,7 +113,6 @@ fun MatrixFormOutline(name: String, modifier: Modifier = Modifier, intent: Inten
         if(determinantResult.isNotEmpty()) {
             Text(
                 modifier = Modifier
-                    .fillMaxWidth()
                     .testTag(CALCULATION_TAG),
                 text = "The determinant calculation is $determinantResult"
             )
