@@ -1,17 +1,6 @@
 package org.jesperancinha.matrixanywhere.ui.theme
 
-import android.app.Activity
-import android.content.Intent
-import android.os.Bundle
-import android.text.InputType
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import android.widget.Button
 import android.widget.EditText
-import android.widget.TableLayout
-import android.widget.TableRow
-import android.widget.TextView
 
 fun calculateDeterminant(tableCalc: Array<Array<EditText?>>?): Double {
     val matrix = Array(tableCalc!!.size) {
@@ -21,8 +10,7 @@ fun calculateDeterminant(tableCalc: Array<Array<EditText?>>?): Double {
     }
     for (i in tableCalc.indices) {
         for (j in tableCalc[0].indices) {
-            if (tableCalc[i][j]!!.text != null && !tableCalc[i][j]!!.text.toString()
-                    .isEmpty()
+            if (tableCalc[i][j]!!.text != null && tableCalc[i][j]!!.text.toString().isNotEmpty()
             ) {
                 matrix[i][j] = tableCalc[i][j]!!.text.toString().toDouble()
             } else {
@@ -33,23 +21,23 @@ fun calculateDeterminant(tableCalc: Array<Array<EditText?>>?): Double {
     return getDeterminant(matrix)
 }
 
-fun getDeterminant(matrix: Array<DoubleArray>): Double {
-    var determinant = 0.0
-    if (matrix.size == 1) determinant += matrix[0][0] else if (matrix.size == 2) {
-        determinant += matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]
-    } else {
-        var multiplier: Int = 1
-        for (matrix1 in matrix) {
-            for (j in matrix[0].indices) {
-                val subMatrix = getSubMatrix(matrix, j)
-                determinant += (multiplier * matrix1[j]
-                        * getDeterminant(subMatrix))
-                multiplier *= -1
+fun getDeterminant(matrix: Array<DoubleArray>): Double =
+    when (matrix.size) {
+        1 -> matrix[0][0]
+        2 -> matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]
+        else -> {
+            var determinant = 0.0
+            var multiplier = 1
+            for (row in matrix) {
+                for (j in matrix[0].indices) {
+                    val subMatrix = getSubMatrix(matrix, j)
+                    determinant += (multiplier * row[j] * getDeterminant(subMatrix))
+                    multiplier *= -1
+                }
             }
+            determinant
         }
     }
-    return determinant
-}
 
 private fun getSubMatrix(matrix: Array<DoubleArray>, c: Int): Array<DoubleArray> {
     val subTable = Array(matrix[0].size - 1) { DoubleArray(matrix.size - 1) }
