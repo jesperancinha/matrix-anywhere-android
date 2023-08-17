@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -29,6 +30,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.platform.testTag
 import androidx.core.text.isDigitsOnly
 
 class MatrixForm : ComponentActivity() {
@@ -52,6 +54,9 @@ class MatrixForm : ComponentActivity() {
         finish()
     }
 }
+
+const val CALCULATION_TAG = "calculation-result"
+const val SUBMIT_CALCULATE_TAG = "submit-calculate"
 
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
@@ -85,6 +90,9 @@ fun MatrixFormOutline(name: String, modifier: Modifier = Modifier, intent: Inten
                         mutableStateOf("")
                     }
                     TextField(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .testTag("$w$h"),
                         value = value,
                         onValueChange = {
                             if (it.isDigitsOnly() && it.isNotEmpty()) {
@@ -103,7 +111,11 @@ fun MatrixFormOutline(name: String, modifier: Modifier = Modifier, intent: Inten
         horizontalArrangement = Arrangement.Center
     ) {
         if(determinantResult.isNotEmpty()) {
-            Text(text = "The determinant calculation is $determinantResult")
+            Text(
+                modifier = Modifier
+                    .testTag(CALCULATION_TAG),
+                text = "The determinant calculation is $determinantResult"
+            )
         }
     }
     Row(
@@ -116,7 +128,9 @@ fun MatrixFormOutline(name: String, modifier: Modifier = Modifier, intent: Inten
         Button(onClick = {
             val determinant = matrixCalculator.calculateDeterminant(matrix)
             determinantResult= determinant.toString()
-        }) {
+        },
+            modifier = Modifier.testTag(SUBMIT_CALCULATE_TAG)
+        ) {
             Text(text = "Calculate")
         }
     }
