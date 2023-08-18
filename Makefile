@@ -58,3 +58,5 @@ fix-gitk:
 	rm ~/.config/git/gitk\
 install-adb:
 	sudo apt-get install adb
+manual-install:
+	adb install app/build/outputs/apk/debug/app-debug.apk
