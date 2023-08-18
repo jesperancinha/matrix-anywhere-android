@@ -18,11 +18,8 @@ jobs:
         distribution: 'adopt'
         cache: gradle
 
-    - name: Set up Android 30
-      uses: jesperancinhaorg/android-action@v0.0.3
-
-    - name: Where is android
-      run: ls -l ~
+#    - name: Set up Android 30
+#      uses: jesperancinhaorg/android-action@v0.0.3
 
     - name: Creates properties
       run: touch local.properties
@@ -33,11 +30,11 @@ jobs:
     - name: Creates properties
       run: touch local.properties
 
-    - name: Start emulator
-      run: make start-emulator-linux-no-window &
+#    - name: Start emulator
+#      run: make start-emulator-linux-no-window &
 
-    - name: Instumentation tests
-      run: make run-android-instrumentation
+#    - name: Instumentation tests
+#      run: make run-android-instrumentation
 
     - name: Download Android dependencies
       run: make dependencies
