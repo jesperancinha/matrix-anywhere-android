@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -23,6 +24,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat.startActivity
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -54,7 +56,7 @@ fun SetupNavGraph(navController: NavHostController, mainActivity: MainActivity) 
         startDestination = Screen.Splash.route
     ) {
         composable(route = Screen.Splash.route) {
-            AnimatedSplashScreen(navController = navController)
+            MatrixSplashScreen(navController = navController)
         }
         composable(route = Screen.Home.route) {
             Surface(
@@ -80,10 +82,13 @@ fun Greeting(name: String, modifier: Modifier = Modifier, mainActivity: MainActi
     ) {
         Text(text = "Please let us know the size of your matrix")
         Row {
-            Text(text = "Height:")
+            Text(
+                text = "Height:",
+                modifier = Modifier.width(200.dp)
+            )
             TextField(
                 modifier = Modifier
-                    .fillMaxWidth()
+                    .width(50.dp)
                     .testTag(HEIGHT_TAG),
                 value = dim,
                 onValueChange = { newText ->
@@ -92,10 +97,13 @@ fun Greeting(name: String, modifier: Modifier = Modifier, mainActivity: MainActi
             )
         }
         Row {
-            Text(text = "Width:")
+            Text(
+                text = "Width:",
+                modifier = Modifier.width(200.dp)
+            )
             TextField(
                 modifier = Modifier
-                    .fillMaxWidth()
+                    .width(50.dp)
                     .testTag(WIDTH_TAG),
                 value = dim,
                 onValueChange = { newText ->

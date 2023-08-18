@@ -8,6 +8,8 @@ start-emulator-linux:
 	~/Android/Sdk/emulator/emulator -list-avds tail -1 | xargs -I {} ~/Android/Sdk/emulator/emulator -avd {}
 start-emulator-linux-no-window:
 	~/Android/Sdk/emulator/emulator -list-avds tail -1 | xargs -I {} ~/Android/Sdk/emulator/emulator -no-window -avd  {}
+stop-emulator-linux:
+	adb devices | grep emulator | cut -f1 | while read line; do adb -s $$line emu kill; done
 run-android-instrumentation:
 	./gradlew connectedAndroidTest
 buildw:
@@ -53,4 +55,6 @@ install-linux:
 	sudo apt-get install curl
 	curl https://services.gradle.org/versions/current
 fix-gitk:
-	rm ~/.config/git/gitk
+	rm ~/.config/git/gitk\
+install-adb:
+	sudo apt-get install adb
