@@ -2,6 +2,8 @@ SHELL := /bin/bash
 GRADLE_VERSION ?= 8.3
 
 b: buildw
+test:
+	./gradlew test
 start-emulator-linux:
 	~/Android/Sdk/emulator/emulator -list-avds tail -1 | xargs -I {} ~/Android/Sdk/emulator/emulator -avd {}
 start-emulator-linux-no-window:
