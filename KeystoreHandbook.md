@@ -6,7 +6,7 @@
 keytool -genkey -v -keystore matrix-release-key.keystore -alias JEsperancinhaORG -keyalg RSA -keysize 2048 -validity 1000000
 ```
 
->Validity for 1000 years 36500
+>Validity for 1000000
 
 - Create private key
 
