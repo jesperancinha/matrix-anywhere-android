@@ -60,3 +60,5 @@ install-adb:
 	sudo apt-get install adb
 manual-install:
 	adb install app/build/outputs/apk/debug/app-debug.apk
+manual-deploy: manual-install
+deploy: manual-deploy
