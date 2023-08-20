@@ -1,7 +1,10 @@
 package org.jesperancinha.matrixanywhere
 
+import androidx.compose.ui.test.SemanticsMatcher
 import androidx.compose.ui.test.assertTextContains
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.onAllNodesWithTag
+import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTextClearance
@@ -26,18 +29,8 @@ class ExampleInstrumentedTest {
     val composeTestRule = createAndroidComposeRule<MainActivity>()
 
     @Test
-    fun useAppContext(): Unit = runBlocking {
-        // Context of the app under test.
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("org.jesperancinha", appContext.packageName)
-        composeTestRule.waitForIdle()
-        composeTestRule.onNodeWithTag(WIDTH_TAG).performTextInput("3")
-        composeTestRule.onNodeWithTag(HEIGHT_TAG).apply {
-            performTextClearance()
-            performTextInput("3")
-        }
-
-        composeTestRule.onNodeWithTag(SUBMIT_MATRIX_TAG).performClick()
+    fun `should run App Context 3 x 3 matrix`(): Unit = runBlocking {
+        typeDimensionsByString("3", "3")
         composeTestRule.waitForIdle()
         composeTestRule.onNodeWithTag("00").apply {
             performTextClearance()
@@ -78,6 +71,29 @@ class ExampleInstrumentedTest {
 
         composeTestRule.onNodeWithTag(SUBMIT_CALCULATE_TAG).performClick()
         composeTestRule.onNodeWithTag(CALCULATION_TAG).assertTextContains("The determinant calculation is 12.0")
+
+    }
+
+    @Test
+    fun `should not allow text when defining context`(){
+        typeDimensionsByString("a","b")
+    }
+
+    private fun typeDimensionsByString(width: String, height: String) {
+        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
+        assertEquals("org.jesperancinha.matrixanywhere", appContext.packageName)
+        composeTestRule.waitForIdle()
+        composeTestRule.onNodeWithTag(WIDTH_TAG).performTextInput(width)
+        composeTestRule.onNodeWithTag(HEIGHT_TAG).apply {
+            performTextClearance()
+            performTextInput(height)
+        }
+        composeTestRule.waitUntil {
+            composeTestRule
+                .onAllNodesWithTag(SUBMIT_MATRIX_TAG)
+                .fetchSemanticsNodes().size == 1
+        }
+        composeTestRule.onNodeWithTag(SUBMIT_MATRIX_TAG).performClick()
 
     }
 }

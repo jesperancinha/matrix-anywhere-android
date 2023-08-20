@@ -20,7 +20,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import kotlinx.coroutines.delay
-import org.jesperancinha.R
 import org.jesperancinha.matrixanywhere.ui.theme.DarkColors
 import org.jesperancinha.matrixanywhere.ui.theme.LightColors
 
