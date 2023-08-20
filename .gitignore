@@ -14,3 +14,5 @@ local.properties
 
 #Releases
 *.aab
+root-icon.png
+root-icon.webp
