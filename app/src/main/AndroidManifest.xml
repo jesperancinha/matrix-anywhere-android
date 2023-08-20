@@ -12,12 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
-            android:name=".MatrixForm"
+            android:name=".matrixanywhere.MatrixForm"
             android:exported="false"
             android:label="@string/title_activity_matrix_form"
             android:theme="@style/Theme.MyApplication" />
         <activity
-            android:name=".MainActivity"
+            android:name=".matrixanywhere.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.MyApplication">
             <intent-filter>

@@ -81,7 +81,7 @@ class ExampleInstrumentedTest {
 
     private fun typeDimensionsByString(width: String, height: String) {
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("org.jesperancinha.matrixanywhere", appContext.packageName)
+        assertEquals("org.jesperancinha", appContext.packageName)
         composeTestRule.waitForIdle()
         composeTestRule.onNodeWithTag(WIDTH_TAG).performTextInput(width)
         composeTestRule.onNodeWithTag(HEIGHT_TAG).apply {
