@@ -63,5 +63,5 @@ manual-install:
 manual-deploy: manual-install
 deploy: manual-deploy
 undeploy:
-	adb uninstall org.jesperancinha.matrix
+	adb uninstall org.jesperancinha
 
