@@ -69,7 +69,7 @@ fun SetupNavGraph(navController: NavHostController, mainActivity: MainActivity) 
                 modifier = Modifier.fillMaxSize(),
                 color = MaterialTheme.colorScheme.background
             ) {
-                Greeting("Android", mainActivity = mainActivity)
+                MainMenu("Android", mainActivity = mainActivity)
             }
         }
     }
@@ -77,7 +77,7 @@ fun SetupNavGraph(navController: NavHostController, mainActivity: MainActivity) 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier, mainActivity: MainActivity) {
+fun MainMenu(name: String, modifier: Modifier = Modifier, mainActivity: MainActivity) {
     var dim by remember {
         mutableStateOf("")
     }
