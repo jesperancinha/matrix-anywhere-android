@@ -1,10 +1,11 @@
- package org.jesperancinha.matrixanywhere
+package org.jesperancinha.matrixanywhere
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -31,6 +32,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.text.isDigitsOnly
 
 class MatrixForm : ComponentActivity() {
@@ -57,82 +59,103 @@ class MatrixForm : ComponentActivity() {
 
 const val CALCULATION_TAG = "calculation-result"
 const val SUBMIT_CALCULATE_TAG = "submit-calculate"
+const val SUBMIT_BACK = "submit-back"
 
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
-fun MatrixFormOutline(name: String, modifier: Modifier = Modifier, intent: Intent, matrixForm: MatrixForm) {
-    val width = intent.getIntExtra("width", 2)
-    val height = intent.getIntExtra("height", 2)
+fun MatrixFormOutline(
+    name: String,
+    modifier: Modifier = Modifier,
+    intent: Intent,
+    matrixForm: MatrixForm
+) {
+    Column {
 
-    val matrix = (1..height).map { DoubleArray(height) }.toTypedArray()
-    val pairList = (1..width).flatMap { w ->
-        (1..height).map { w - 1 to it - 1 }
-    }
+        val width = intent.getIntExtra("width", 2)
+        val height = intent.getIntExtra("height", 2)
 
-    val  matrixCalculator by lazy {  MatrixCalculator() }
-    var determinantResult by remember {
-        mutableStateOf("")
-    }
-    Row(
-        verticalAlignment = Alignment.Top,
-        horizontalArrangement = Arrangement.Center
-    ) {
-        LazyVerticalGrid(
-            columns = GridCells.Fixed(width),
-            contentPadding = PaddingValues(8.dp)
+        val matrix = (1..height).map { DoubleArray(height) }.toTypedArray()
+        val pairList = (1..width).flatMap { w ->
+            (1..height).map { w - 1 to it - 1 }
+        }
+
+        val matrixCalculator by lazy { MatrixCalculator() }
+        var determinantResult by remember {
+            mutableStateOf("")
+        }
+        Row(
+            verticalAlignment = Alignment.Top,
+            horizontalArrangement = Arrangement.Center
         ) {
-            items(pairList) { (w, h) ->
-                Card(
-                    modifier = Modifier.padding(4.dp),
-                    backgroundColor = Color.LightGray
-                ) {
-                    var value by remember {
-                        mutableStateOf("")
-                    }
-                    TextField(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .testTag("$w$h"),
-                        value = value,
-                        onValueChange = {
-                            if (it.isDigitsOnly() && it.isNotEmpty()) {
-                                matrix[w][h] = it.toDouble()
-                            }
-                            value = it
+            LazyVerticalGrid(
+                columns = GridCells.Fixed(width),
+                contentPadding = PaddingValues(8.dp)
+            ) {
+                items(pairList) { (w, h) ->
+                    Card(
+                        modifier = Modifier.padding(4.dp),
+                        backgroundColor = Color.LightGray
+                    ) {
+                        var value by remember {
+                            mutableStateOf("")
                         }
-                    )
+                        TextField(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .testTag("$w$h"),
+                            value = value,
+                            onValueChange = {
+                                if (it.isDigitsOnly() && it.isNotEmpty()) {
+                                    matrix[w][h] = it.toDouble()
+                                }
+                                value = it
+                            }
+                        )
+                    }
                 }
             }
         }
-    }
-    
-    Row (
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.Center
-    ) {
-        if(determinantResult.isNotEmpty()) {
-            Text(
-                modifier = Modifier
-                    .testTag(CALCULATION_TAG),
-                text = "The determinant calculation is $determinantResult"
-            )
-        }
-    }
-    Row(
-        verticalAlignment = Alignment.Bottom,
-        horizontalArrangement = Arrangement.Center
-    ) {
-        Button(onClick = { matrixForm.finish() }) {
-            Text(text = "Back")
-        }
-        Button(onClick = {
-            val determinant = matrixCalculator.calculateDeterminant(matrix)
-            determinantResult= determinant.toString()
-        },
-            modifier = Modifier.testTag(SUBMIT_CALCULATE_TAG)
+
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center
         ) {
-            Text(text = "Calculate")
+            if (determinantResult.isNotEmpty()) {
+                Text(
+                    modifier = Modifier
+                        .testTag(CALCULATION_TAG),
+                    text = "The determinant calculation is $determinantResult"
+                )
+            }
+        }
+        Row(
+            verticalAlignment = Alignment.Bottom,
+            horizontalArrangement = Arrangement.Center
+        ) {
+            Button(
+                modifier=Modifier
+                    .testTag(SUBMIT_BACK)
+                    .fillMaxWidth(0.5f),
+                onClick = { matrixForm.finish() }) {
+                Text(text = "Back")
+            }
+            Button(
+                onClick = {
+                    val determinant = matrixCalculator.calculateDeterminant(matrix)
+                    determinantResult = determinant.toString()
+                },
+                modifier = Modifier.testTag(SUBMIT_CALCULATE_TAG)
+                    .fillMaxWidth()
+            ) {
+                Text(text = "Calculate")
+            }
         }
     }
 
+}
+
+@Preview
+@Composable
+fun MatrixFormOutlineDemo() {
+    return MatrixFormOutline(name = "Android", intent = Intent(), matrixForm = MatrixForm())
 }

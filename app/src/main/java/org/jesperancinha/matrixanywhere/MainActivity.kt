@@ -25,6 +25,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat.startActivity
 import androidx.core.text.isDigitsOnly
@@ -130,4 +131,10 @@ fun MainMenu(name: String, modifier: Modifier = Modifier, mainActivity: MainActi
             Text(text = "Submit")
         }
     }
+}
+
+@Preview
+@Composable
+fun MainMenuDemo(){
+    MainMenu("Android", mainActivity = MainActivity())
 }
