@@ -25,17 +25,17 @@ An evolution of the previous Matrix Anywhere app.
 
 Please read my privacy policy listed in [Privacy Policy](Privacy_Policy.md).
 
-![alt text](app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp "Matrix Anywhere 2")
-![alt text](app/src/main/res/mipmap-xxhdpi/ic_launcher.webp "Matrix Anywhere 2")
-![alt text](app/src/main/res/mipmap-xhdpi/ic_launcher.webp "Matrix Anywhere 2")
-![alt text](app/src/main/res/mipmap-hdpi/ic_launcher.webp "Matrix Anywhere 2")
-![alt text](app/src/main/res/mipmap-mdpi/ic_launcher.webp "Matrix Anywhere 2")
+![alt text](app/src/main/res/mipmap-xxxhdpi/ic_launcher.png "Matrix Anywhere 2")
+![alt text](app/src/main/res/mipmap-xxhdpi/ic_launcher.png "Matrix Anywhere 2")
+![alt text](app/src/main/res/mipmap-xhdpi/ic_launcher.png "Matrix Anywhere 2")
+![alt text](app/src/main/res/mipmap-hdpi/ic_launcher.png "Matrix Anywhere 2")
+![alt text](app/src/main/res/mipmap-mdpi/ic_launcher.png "Matrix Anywhere 2")
 
-![alt text](app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp "Matrix Anywhere 2")
-![alt text](app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp "Matrix Anywhere 2")
-![alt text](app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp "Matrix Anywhere 2")
-![alt text](app/src/main/res/mipmap-hdpi/ic_launcher_round.webp "Matrix Anywhere 2")
-![alt text](app/src/main/res/mipmap-mdpi/ic_launcher_round.webp "Matrix Anywhere 2")
+![alt text](app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png "Matrix Anywhere 2")
+![alt text](app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png "Matrix Anywhere 2")
+![alt text](app/src/main/res/mipmap-xhdpi/ic_launcher_round.png "Matrix Anywhere 2")
+![alt text](app/src/main/res/mipmap-hdpi/ic_launcher_round.png "Matrix Anywhere 2")
+![alt text](app/src/main/res/mipmap-mdpi/ic_launcher_round.png "Matrix Anywhere 2")
 
 ## Status
 
