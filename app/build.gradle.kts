@@ -13,8 +13,8 @@ android {
         applicationId = "org.jesperancinha"
         minSdk = 33
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 4
+        versionName = "2.0.3"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -42,7 +42,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = "1.5.1"
     }
     packaging {
         resources {
@@ -66,6 +66,7 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.7.0")
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
     implementation("com.google.android.material:material:1.9.0")
+    implementation("com.android.support:multidex:1.0.3")
     testImplementation("junit:junit:4.13.2")
     testImplementation("io.kotest:kotest-assertions-core-jvm:5.6.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

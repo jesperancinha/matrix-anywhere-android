@@ -3,14 +3,11 @@ package org.jesperancinha.matrixanywhere
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Email
-import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -19,12 +16,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import kotlinx.coroutines.delay
+import org.jesperancinha.matrixanywhere.ui.theme.DarkColors
+import org.jesperancinha.matrixanywhere.ui.theme.LightColors
+import org.jesperancinha.R
 
 
 sealed class Screen(val route: String) {
@@ -32,7 +30,7 @@ sealed class Screen(val route: String) {
     object Home: Screen("home_screen")
 }
 @Composable
-fun AnimatedSplashScreen(navController: NavHostController) {
+fun MatrixSplashScreen(navController: NavHostController) {
     var startAnimation by remember { mutableStateOf(false) }
     val floatState = animateFloatAsState(
         targetValue = if (startAnimation) 1f else 0f,
@@ -52,20 +50,20 @@ fun AnimatedSplashScreen(navController: NavHostController) {
 
 @Composable
 fun Splash(alpha: Float) {
+    val colorScheme = when {
+        isSystemInDarkTheme() -> DarkColors
+        else -> LightColors
+    }
     Box(
         modifier = Modifier
-            .background(if (isSystemInDarkTheme()) Color.Black else Color.Blue)
+            .background(colorScheme.primary)
             .fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        Icon(
-            modifier = Modifier
-                .size(120.dp)
-                .alpha(alpha = alpha),
-            imageVector = Icons.Default.Email,
-            contentDescription = "Logo Icon",
-            tint = Color.White
-        )
+            Image(
+                painter = painterResource(id = R.drawable.matrixandroid),
+                contentDescription = "opening"
+            )
     }
 }
 

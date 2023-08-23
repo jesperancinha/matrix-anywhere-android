@@ -8,6 +8,8 @@ start-emulator-linux:
 	~/Android/Sdk/emulator/emulator -list-avds tail -1 | xargs -I {} ~/Android/Sdk/emulator/emulator -avd {}
 start-emulator-linux-no-window:
 	~/Android/Sdk/emulator/emulator -list-avds tail -1 | xargs -I {} ~/Android/Sdk/emulator/emulator -no-window -avd  {}
+stop-emulator-linux:
+	adb devices | grep emulator | cut -f1 | while read line; do adb -s $$line emu kill; done
 run-android-instrumentation:
 	./gradlew connectedAndroidTest
 buildw:
@@ -19,8 +21,8 @@ install-jacococli:
 	unzip remotecontent\?filepath=org%2Fjacoco%2Fjacoco%2F0.8.7%2Fjacoco-0.8.7.zip
 unpack-reports:
 	mkdir -p jacoco
-	java -jar lib/jacococli.jar report matrix-anywhere-android/build/jacoco/testReleaseUnitTest.exec --classfiles matrix-anywhere-android/build/.transforms/*/transformed/out/jars/classes.jar --xml jacoco/jacocoRelease.xml
-	java -jar lib/jacococli.jar report matrix-anywhere-android/build/jacoco/testDebugUnitTest.exec --classfiles matrix-anywhere-android/build/.transforms/*/transformed/out/jars/classes.jar --xml jacoco/jacocoDebug.xml
+	java -jar lib/jacococli.jar report app/build/jacoco/testReleaseUnitTest.exec --classfiles matrix-anywhere-android/build/.transforms/*/transformed/out/jars/classes.jar --xml jacoco/jacocoRelease.xml
+	java -jar lib/jacococli.jar report app/build/jacoco/testDebugUnitTest.exec --classfiles matrix-anywhere-android/build/.transforms/*/transformed/out/jars/classes.jar --xml jacoco/jacocoDebug.xml
 coverage:
 	./gradlew clean build test jacocoTestReport
 	./gradlew -i
@@ -53,4 +55,13 @@ install-linux:
 	sudo apt-get install curl
 	curl https://services.gradle.org/versions/current
 fix-gitk:
-	rm ~/.config/git/gitk
+	rm ~/.config/git/gitk\
+install-adb:
+	sudo apt-get install adb
+manual-install:
+	adb install app/build/outputs/apk/debug/app-debug.apk
+manual-deploy: manual-install
+deploy: manual-deploy
+undeploy:
+	adb uninstall org.jesperancinha
+

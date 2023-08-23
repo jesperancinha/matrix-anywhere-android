@@ -25,25 +25,47 @@ An evolution of the previous Matrix Anywhere app.
 
 Please read my privacy policy listed in [Privacy Policy](Privacy_Policy.md).
 
-![alt text](app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp "Matrix Anywhere 2")
-![alt text](app/src/main/res/mipmap-xxhdpi/ic_launcher.webp "Matrix Anywhere 2")
-![alt text](app/src/main/res/mipmap-xhdpi/ic_launcher.webp "Matrix Anywhere 2")
-![alt text](app/src/main/res/mipmap-hdpi/ic_launcher.webp "Matrix Anywhere 2")
-![alt text](app/src/main/res/mipmap-mdpi/ic_launcher.webp "Matrix Anywhere 2")
+![alt text](app/src/main/res/mipmap-xxxhdpi/ic_launcher.png "Matrix Anywhere 2")
+![alt text](app/src/main/res/mipmap-xxhdpi/ic_launcher.png "Matrix Anywhere 2")
+![alt text](app/src/main/res/mipmap-xhdpi/ic_launcher.png "Matrix Anywhere 2")
+![alt text](app/src/main/res/mipmap-hdpi/ic_launcher.png "Matrix Anywhere 2")
+![alt text](app/src/main/res/mipmap-mdpi/ic_launcher.png "Matrix Anywhere 2")
 
-![alt text](app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp "Matrix Anywhere 2")
-![alt text](app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp "Matrix Anywhere 2")
-![alt text](app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp "Matrix Anywhere 2")
-![alt text](app/src/main/res/mipmap-hdpi/ic_launcher_round.webp "Matrix Anywhere 2")
-![alt text](app/src/main/res/mipmap-mdpi/ic_launcher_round.webp "Matrix Anywhere 2")
+![alt text](app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png "Matrix Anywhere 2")
+![alt text](app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png "Matrix Anywhere 2")
+![alt text](app/src/main/res/mipmap-xhdpi/ic_launcher_round.png "Matrix Anywhere 2")
+![alt text](app/src/main/res/mipmap-hdpi/ic_launcher_round.png "Matrix Anywhere 2")
+![alt text](app/src/main/res/mipmap-mdpi/ic_launcher_round.png "Matrix Anywhere 2")
+
+---
+
+## My Android apps
+
+<div align="center">
+
+[![](https://img.shields.io/badge/Matrix%20Anywhere%202-%230077B5.svg?style=for-the-badge&logo=android&color=0a5d00)](https://github.com/jesperancinha/matrix-anywhere-android)
+[![](https://img.shields.io/badge/Base%20Converter-%230077B5.svg?style=for-the-badge&logo=android&color=0a5d00)](https://github.com/jesperancinha/base-converter-android)
+[![](https://img.shields.io/badge/Timezone%20Utility-%230077B5.svg?style=for-the-badge&logo=android&color=0a5d00)](https://github.com/jesperancinha/timezone-app-utility-android)
+[![](https://img.shields.io/badge/Ping%20App-%230077B5.svg?style=for-the-badge&logo=android&color=0a5d00)](https://github.com/jesperancinha/ping-app-android)
+[![](https://img.shields.io/badge/Catcher%20App-%230077B5.svg?style=for-the-badge&logo=android&color=0a5d00)](https://github.com/jesperancinha/catcher-app-android)
+
+</div>
+
+---
+
 
 ## Status
 
-***Under development***
+Released:
+
+
+[![](https://img.shields.io/badge/Matrix%20Anywhere%202-%230077B5.svg?style=for-the-badge&logo=android&color=0a5d00)](https://play.google.com/store/apps/details?id=org.jesperancinha)
+
 
 ## References
 
 -   [Material Theme Builder](https://m3.material.io/theme-builder)
+-   [Android Stop Emulator from Command Line](https://syntaxfix.com/question/12017/android-stop-emulator-from-command-line)
 
 ## About me
 
