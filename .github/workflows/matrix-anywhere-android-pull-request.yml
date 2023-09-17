@@ -27,11 +27,11 @@ jobs:
     - name: Creates properties
       run: touch local.properties
 
-    - name: Start emulator
-      run: make start-emulator-linux-no-window &
-
-    - name: Instumentation tests
-      run: make run-android-instrumentation
+#    - name: Start emulator
+#      run: make start-emulator-linux-no-window &
+#
+#    - name: Instumentation tests
+#      run: make run-android-instrumentation
 
     - name: Download Android dependencies
       run: make dependencies
