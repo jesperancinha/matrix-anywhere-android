@@ -64,4 +64,6 @@ manual-deploy: manual-install
 deploy: manual-deploy
 undeploy:
 	adb uninstall org.jesperancinha
-
+direct-connection-setup:
+	sudo usermod -aG plugdev $LOGNAME
+	sudo apt-get install android-sdk-platform-tools-common
