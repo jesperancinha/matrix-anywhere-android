@@ -1,7 +1,9 @@
 SHELL := /bin/bash
-GRADLE_VERSION ?= 8.3
+GRADLE_VERSION ?= 8.5
 
 b: buildw
+wrapper:
+	gradle wrapper
 test:
 	./gradlew test
 start-emulator-linux:
