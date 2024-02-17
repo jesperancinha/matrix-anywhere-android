@@ -50,6 +50,10 @@ android {
         }
     }
     buildToolsVersion = "33.0.1"
+
+    lint {
+        baseline = file("lint-baseline.xml")
+    }
 }
 
 dependencies {
