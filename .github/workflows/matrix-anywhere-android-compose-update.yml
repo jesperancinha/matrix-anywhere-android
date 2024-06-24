@@ -1,0 +1,33 @@
+name: Updates compose
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+
+jobs:
+  update-compose:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run dependency update script
+        run: make deps-compose-update
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: Update compose
+          branch: update-compose
+          title: 'Update compose'
+          body: |
+            This pull request updates the following dependencies:
+            - Current compose updates
+          labels: dependencies
