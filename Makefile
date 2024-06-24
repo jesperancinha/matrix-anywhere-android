@@ -69,3 +69,7 @@ undeploy:
 direct-connection-setup:
 	sudo usermod -aG plugdev $LOGNAME
 	sudo apt-get install android-sdk-platform-tools-common
+deps-plugins-update:
+	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/pluginUpdatesOne.sh | bash
+deps-compose-update:
+	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/jetPackComposeUpdatesOne.sh | bash
