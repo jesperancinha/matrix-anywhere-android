@@ -1,5 +1,5 @@
 SHELL := /bin/bash
-GRADLE_VERSION ?= 8.8
+GRADLE_VERSION ?= 8.9
 
 b: buildw
 wrapper:
@@ -78,3 +78,6 @@ deps-gradle-update:
 deps-java-update:
 	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/javaUpdatesOne.sh | bash
 deps-quick-update: deps-compose-update deps-plugins-update deps-gradle-update
+accept-prs:
+	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/acceptPR.sh | bash
+
