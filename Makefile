@@ -1,5 +1,5 @@
 SHELL := /bin/bash
-GRADLE_VERSION ?= 8.9
+GRADLE_VERSION ?= 8.10.2
 
 b: buildw
 wrapper:
@@ -70,7 +70,7 @@ direct-connection-setup:
 	sudo usermod -aG plugdev $LOGNAME
 	sudo apt-get install android-sdk-platform-tools-common
 deps-plugins-update:
-	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/pluginUpdatesOne.sh | bash
+	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/pluginUpdatesOne.sh | bash -s -- $(PARAMS)
 deps-compose-update:
 	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/jetPackComposeUpdatesOne.sh | bash
 deps-gradle-update:
