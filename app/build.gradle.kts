@@ -7,12 +7,12 @@ plugins {
 
 android {
     namespace = "org.jesperancinha"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "org.jesperancinha"
-        minSdk = 33
-        targetSdk = 34
+        minSdk = 35
+        targetSdk = 35
         versionCode = 4
         versionName = "2.0.3"
 
