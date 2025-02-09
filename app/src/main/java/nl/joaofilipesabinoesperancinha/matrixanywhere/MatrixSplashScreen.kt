@@ -1,4 +1,4 @@
-package org.jesperancinha.matrixanywhere
+package nl.joaofilipesabinoesperancinha.matrixanywhere
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.animation.core.animateFloatAsState
@@ -20,13 +20,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import kotlinx.coroutines.delay
-import org.jesperancinha.matrixanywhere.ui.theme.DarkColors
-import org.jesperancinha.matrixanywhere.ui.theme.LightColors
+import nl.joaofilipesabinoesperancinha.matrixanywhere.ui.theme.DarkColors
+import nl.joaofilipesabinoesperancinha.matrixanywhere.ui.theme.LightColors
 import org.jesperancinha.R
 
 
 sealed class Screen(val route: String) {
-    object Splash:Screen("splash_screen")
+    object Splash: Screen("splash_screen")
     object Home: Screen("home_screen")
 }
 @Composable
