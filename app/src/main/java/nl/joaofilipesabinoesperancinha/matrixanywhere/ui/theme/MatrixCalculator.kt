@@ -1,4 +1,4 @@
-package org.jesperancinha.matrixanywhere.ui.theme
+package nl.joaofilipesabinoesperancinha.matrixanywhere.ui.theme
 
 import android.widget.EditText
 

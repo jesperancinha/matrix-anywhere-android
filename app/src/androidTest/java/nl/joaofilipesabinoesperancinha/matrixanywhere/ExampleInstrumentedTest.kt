@@ -1,10 +1,8 @@
-package org.jesperancinha.matrixanywhere
+package nl.joaofilipesabinoesperancinha.matrixanywhere
 
-import androidx.compose.ui.test.SemanticsMatcher
 import androidx.compose.ui.test.assertTextContains
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onAllNodesWithTag
-import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTextClearance
