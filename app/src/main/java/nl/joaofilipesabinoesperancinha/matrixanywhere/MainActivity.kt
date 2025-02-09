@@ -1,4 +1,4 @@
-package org.jesperancinha.matrixanywhere
+package nl.joaofilipesabinoesperancinha.matrixanywhere
 
 import android.content.Intent
 import android.os.Bundle
@@ -33,7 +33,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import org.jesperancinha.matrixanywhere.ui.theme.MatrixAnywhereTheme
+import nl.joaofilipesabinoesperancinha.matrixanywhere.ui.theme.MatrixAnywhereTheme
 
 
 const val WIDTH_TAG = "width-tag"

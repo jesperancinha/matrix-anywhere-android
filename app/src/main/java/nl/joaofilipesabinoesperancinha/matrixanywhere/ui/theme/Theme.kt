@@ -1,4 +1,4 @@
-package org.jesperancinha.matrixanywhere.ui.theme
+package nl.joaofilipesabinoesperancinha.matrixanywhere.ui.theme
 
 import android.app.Activity
 import androidx.compose.foundation.isSystemInDarkTheme
