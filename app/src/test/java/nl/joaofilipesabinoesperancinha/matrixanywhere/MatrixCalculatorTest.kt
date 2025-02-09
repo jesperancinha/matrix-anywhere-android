@@ -1,7 +1,7 @@
-package org.jesperancinha.matrixanywhere
+package nl.joaofilipesabinoesperancinha.matrixanywhere
 
 import io.kotest.matchers.shouldBe
-import org.jesperancinha.matrixanywhere.ui.theme.getDeterminant
+import nl.joaofilipesabinoesperancinha.matrixanywhere.ui.theme.getDeterminant
 import org.junit.Test
 
 internal class MatrixCalculatorTest {
