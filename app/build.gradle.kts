@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "org.jesperancinha"
+    namespace = "nl.joaofilipesabinoesperancinha.matrixanywhere"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "org.jesperancinha"
+        applicationId = "nl.joaofilipesabinoesperancinha.matrixanywhere"
         minSdk = 35
         targetSdk = 35
         versionCode = 4

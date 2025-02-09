@@ -1,4 +1,4 @@
-package org.jesperancinha.matrixanywhere.ui.theme
+package nl.joaofilipesabinoesperancinha.matrixanywhere.ui.theme
 import androidx.compose.ui.graphics.Color
 
 val md_theme_light_primary = Color(0xFF6042D6)
