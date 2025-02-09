@@ -65,7 +65,7 @@ manual-install:
 manual-deploy: manual-install
 deploy: manual-deploy
 undeploy:
-	adb uninstall org.jesperancinha
+	adb uninstall nl.joaofilipesabinoesperancinha.matrixanywhere
 direct-connection-setup:
 	sudo usermod -aG plugdev $LOGNAME
 	sudo apt-get install android-sdk-platform-tools-common
