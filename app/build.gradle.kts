@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("org.jesperancinha.plugins.omni") version "0.3.1"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.0.0"
     id("jacoco")
 }
 
