@@ -1,4 +1,4 @@
-package org.jesperancinha.matrixanywhere
+package nl.joaofilipesabinoesperancinha.matrixanywhere
 
 import android.widget.EditText
 
