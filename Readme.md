@@ -59,7 +59,7 @@ Please read my privacy policy listed in [Privacy Policy](Privacy_Policy.md).
 Released:
 
 
-[![](https://img.shields.io/badge/Matrix%20Anywhere%202-%230077B5.svg?style=for-the-badge&logo=android&color=0a5d00)](https://play.google.com/store/apps/details?id=org.jesperancinha)
+[![](https://img.shields.io/badge/Matrix%20Anywhere%202-%230077B5.svg?style=for-the-badge&logo=android&color=0a5d00)](https://play.google.com/store/apps/details?id=nl.joaofilipesabinoesperancinha.matrixanywhere)
 
 
 ## References
