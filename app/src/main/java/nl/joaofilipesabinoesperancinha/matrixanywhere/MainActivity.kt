@@ -39,6 +39,7 @@ import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.plus
 import nl.joaofilipesabinoesperancinha.matrixanywhere.ui.theme.MatrixAnywhereTheme
@@ -66,11 +67,12 @@ class MainActivity : ComponentActivity() {
             }
             LaunchedEffect(Unit) {
                 mainScope.launch {
-                    throw RuntimeException()
+                    println("Current thread ${Thread.currentThread()} with dispatcher ${currentCoroutineContext()}")
                     text = "Use height on the top"
                 }
 
                 mainScope.launch {
+                    println("Current thread ${Thread.currentThread()} with dispatcher ${currentCoroutineContext()}")
                     text2 = "Use width at the bottom"
                 }
             }
