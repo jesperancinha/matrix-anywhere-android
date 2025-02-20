@@ -66,6 +66,7 @@ Released:
 
 -   [Material Theme Builder](https://m3.material.io/theme-builder)
 -   [Android Stop Emulator from Command Line](https://syntaxfix.com/question/12017/android-stop-emulator-from-command-line)
+-   https://www.droidcon.com/2025/02/18/advanced-exception-handling-in-kotlin-coroutines-a-guide-for-android-developers/
 
 ## About me
 
