@@ -2,8 +2,10 @@ package nl.joaofilipesabinoesperancinha.matrixanywhere
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -12,7 +14,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -32,6 +33,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat.startActivity
 import androidx.core.text.isDigitsOnly
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -40,9 +43,12 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.plus
 import nl.joaofilipesabinoesperancinha.matrixanywhere.ui.theme.MatrixAnywhereTheme
+import nl.joaofilipesabinoesperancinha.matrixanywhere.viewmodel.MyViewModel
+import kotlin.time.Duration.Companion.milliseconds
 
 
 const val WIDTH_TAG = "width-tag"
@@ -55,8 +61,23 @@ val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
 
 class MainActivity : ComponentActivity() {
     private val mainScope = MainScope() + exceptionHandler
-
+    private val viewModel: MyViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        viewModel.viewModelScope.launch {
+            while (true) {
+                delay(500.milliseconds)
+                Log.d("Coroutine", "I'm running in a viewModelScope and you still didn't stop me! - Thread ${Thread.currentThread()} | Scope ${currentCoroutineContext()}")
+            }
+        }
+
+        lifecycleScope.launch {
+            while (true) {
+                delay(500.milliseconds)
+                Log.d("Coroutine", "I'm running in a lifecycleScope and you still didn't stop me! - Thread ${Thread.currentThread()} | Scope ${currentCoroutineContext()}")
+            }
+        }
+
         super.onCreate(savedInstanceState)
         setContent {
             var text by remember { mutableStateOf("<NOT USED>") }
@@ -106,17 +127,14 @@ fun SetupNavGraph(
                 modifier = Modifier.fillMaxSize(),
                 color = MaterialTheme.colorScheme.background
             ) {
-                MainMenu("Android", mainActivity = mainActivity, text = text, text2 = text2)
+                MainMenu(mainActivity = mainActivity, text = text, text2 = text2)
             }
         }
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainMenu(
-    name: String,
-    modifier: Modifier = Modifier,
     mainActivity: MainActivity,
     text: String,
     text2: String = "<NOTHING>"
@@ -170,7 +188,7 @@ fun MainMenu(
         Button(
             onClick = {
                 if (dim.isDigitsOnly() && dim.isNotEmpty()) {
-                    val navigate = Intent(mainActivity, MatrixForm::class.java)
+                    val navigate = Intent(mainActivity, MatrixFormActivity::class.java)
                     navigate.putExtra("height", dim.toInt())
                     navigate.putExtra("width", dim.toInt())
                     startActivity(mainActivity, navigate, null)
@@ -181,11 +199,22 @@ fun MainMenu(
         ) {
             Text(text = "Submit")
         }
+        Button(
+            onClick = {
+                    val navigate = Intent(mainActivity, TestCoroutineActivity::class.java)
+                    startActivity(mainActivity, navigate, null)
+                    mainActivity.finish()
+            },
+            modifier = Modifier
+                .testTag(SUBMIT_MATRIX_TAG)
+        ) {
+            Text(text = "Test Coroutines")
+        }
     }
 }
 
 @Preview
 @Composable
 fun MainMenuDemo() {
-    MainMenu("Android", mainActivity = MainActivity(), text = "DEMO")
+    MainMenu(mainActivity = MainActivity(), text = "DEMO")
 }

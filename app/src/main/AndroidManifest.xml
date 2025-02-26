@@ -12,7 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
-            android:name="nl.joaofilipesabinoesperancinha.matrixanywhere.MatrixForm"
+            android:name="nl.joaofilipesabinoesperancinha.matrixanywhere.TestCoroutineActivity"
+            android:exported="false"
+            android:label="@string/title_activity_matrix_form"
+            android:theme="@style/Theme.MyApplication" />
+        <activity
+            android:name="nl.joaofilipesabinoesperancinha.matrixanywhere.MatrixFormActivity"
             android:exported="false"
             android:label="@string/title_activity_matrix_form"
             android:theme="@style/Theme.MyApplication" />

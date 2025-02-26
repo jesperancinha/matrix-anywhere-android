@@ -22,7 +22,6 @@ import androidx.navigation.NavHostController
 import kotlinx.coroutines.delay
 import nl.joaofilipesabinoesperancinha.matrixanywhere.ui.theme.DarkColors
 import nl.joaofilipesabinoesperancinha.matrixanywhere.ui.theme.LightColors
-import nl.joaofilipesabinoesperancinha.matrixanywhere.R
 
 
 sealed class Screen(val route: String) {
