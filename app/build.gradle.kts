@@ -72,7 +72,7 @@ dependencies {
     implementation("com.google.android.material:material:1.12.0")
     implementation("com.android.support:multidex:1.0.3")
     testImplementation("junit:junit:4.13.2")
-    testImplementation("io.kotest:kotest-assertions-core-jvm:6.0.1")
+    testImplementation("io.kotest:kotest-assertions-core-jvm:6.0.2")
     androidTestImplementation("androidx.test.ext:junit:1.3.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
     androidTestImplementation(platform("androidx.compose:compose-bom:2025.08.01"))
