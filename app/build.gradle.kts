@@ -69,7 +69,7 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation("androidx.navigation:navigation-compose:2.9.3")
     implementation(platform("androidx.compose:compose-bom:2025.08.01"))
-    implementation("com.google.android.material:material:1.12.0")
+    implementation("com.google.android.material:material:1.13.0")
     implementation("com.android.support:multidex:1.0.3")
     testImplementation("junit:junit:4.13.2")
     testImplementation("io.kotest:kotest-assertions-core-jvm:6.0.2")
