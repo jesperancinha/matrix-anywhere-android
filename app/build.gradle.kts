@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace = "nl.joaofilipesabinoesperancinha.matrixanywhere"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "nl.joaofilipesabinoesperancinha.matrixanywhere"
-        minSdk = 35
-        targetSdk = 35
+        minSdk = 36
+        targetSdk = 36
         versionCode = 4
         versionName = "2.0.3"
 
