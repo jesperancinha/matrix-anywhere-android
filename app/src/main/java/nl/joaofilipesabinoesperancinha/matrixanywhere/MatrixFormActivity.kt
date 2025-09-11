@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.onBackPressedDispatcher
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -48,12 +49,9 @@ class MatrixFormActivity : ComponentActivity() {
                 }
             }
         }
-    }
-
-    @Deprecated("Deprecated in Java", ReplaceWith("finish()"))
-    override fun onBackPressed() {
-        super.onBackPressed()
-        finish()
+        onBackPressedDispatcher.addCallback(this) {
+            finish()
+        }
     }
 }
 
