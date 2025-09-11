@@ -3,6 +3,7 @@ package nl.joaofilipesabinoesperancinha.matrixanywhere
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.addCallback
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -48,12 +49,9 @@ class MatrixFormActivity : ComponentActivity() {
                 }
             }
         }
-    }
-
-    @Deprecated("Deprecated in Java", ReplaceWith("finish()"))
-    override fun onBackPressed() {
-        super.onBackPressed()
-        finish()
+        onBackPressedDispatcher.addCallback(this) {
+            finish()
+        }
     }
 }
 
