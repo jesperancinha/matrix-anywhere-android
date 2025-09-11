@@ -3,8 +3,8 @@ package nl.joaofilipesabinoesperancinha.matrixanywhere
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.addCallback
 import androidx.activity.compose.setContent
-import androidx.activity.onBackPressedDispatcher
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
