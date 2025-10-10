@@ -39,7 +39,6 @@ jobs:
     - name: Gradle Lint Test
       run: make lint
 
-
     - name: Send Reports
       run: gradle -i
       env:
